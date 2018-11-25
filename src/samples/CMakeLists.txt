@@ -1,0 +1,3 @@
+
+add_executable(test_liblas_reader test_liblas_reader.cpp)
+target_link_libraries(test_liblas_reader liblas)

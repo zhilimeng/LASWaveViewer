@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WaveProDlgClass</class>
+ <widget class="QDialog" name="WaveProDlgClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>WaveProDlg</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+   </item>
+   <item>
+    <widget class="WavePlotter" name="waveplotter" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>600</width>
+       <height>400</height>
+      </size>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+background:black
+}</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="openButton">
+           <property name="text">
+            <string>打开文件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="previousButton">
+           <property name="text">
+            <string>上一个</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="nextButton">
+           <property name="text">
+            <string>下一个</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="outputwaveButton">
+           <property name="text">
+            <string>输出当前波形</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="outputptButton">
+           <property name="text">
+            <string>输出波形参数</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="filtergroupBox">
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>73</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>滤波</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QRadioButton" name="nofilterradioButton">
+          <property name="text">
+           <string>不滤波</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="midradioButton">
+          <property name="text">
+           <string>中值滤波</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QRadioButton" name="meanradioButton">
+          <property name="text">
+           <string>均值滤波</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QRadioButton" name="gaussianradioButton">
+          <property name="text">
+           <string>高斯滤波</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QRadioButton" name="sgradioButton">
+          <property name="text">
+           <string>Savitzky-Golay滤波</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+       <zorder>meanradioButton</zorder>
+       <zorder>gaussianradioButton</zorder>
+       <zorder>nofilterradioButton</zorder>
+       <zorder>midradioButton</zorder>
+       <zorder>sgradioButton</zorder>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="decomposeBox">
+       <property name="title">
+        <string>分解</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QCheckBox" name="initdecomcheckBox">
+          <property name="text">
+           <string>初始分解</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="intiopticheckBox">
+          <property name="text">
+           <string>初始优化</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="lmopticheckBox">
+          <property name="text">
+           <string>LM优化</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QSlider" name="horizontalSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="spinBox">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>WavePlotter</class>
+   <extends>QWidget</extends>
+   <header>waveplotter.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="waveprodlg.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>openButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>openFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>306</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>previousButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>previousClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>240</x>
+     <y>362</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nextButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>nextClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>378</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nofilterradioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>noFilterClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>446</x>
+     <y>472</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>327</x>
+     <y>409</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>midradioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>midFilterClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>584</x>
+     <y>472</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>441</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gaussianradioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>gaussianFilterClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>584</x>
+     <y>505</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>233</x>
+     <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>meanradioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>meanFilterClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>446</x>
+     <y>505</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>289</x>
+     <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>initdecomcheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>initdecom_stateChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>879</x>
+     <y>472</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>516</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>intiopticheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>initopti_stateChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>879</x>
+     <y>505</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>531</x>
+     <y>466</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lmopticheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>lmopti_stateChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>879</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>530</x>
+     <y>509</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>589</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>889</x>
+     <y>588</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>horizontalSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>889</x>
+     <y>588</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>on_valueChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>589</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>578</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>on_valueChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>889</x>
+     <y>588</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>566</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>on_sliderChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>589</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sgradioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>sgFilter_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>584</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>415</x>
+     <y>532</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outputptButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>outputptbutton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>296</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>21</x>
+     <y>514</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outputwaveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>WaveProDlgClass</receiver>
+   <slot>outputwavebutton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>465</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>84</x>
+     <y>529</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>openFile()</slot>
+  <slot>nextClicked()</slot>
+  <slot>previousClicked()</slot>
+  <slot>noFilterClicked()</slot>
+  <slot>midFilterClicked()</slot>
+  <slot>meanFilterClicked()</slot>
+  <slot>gaussianFilterClicked()</slot>
+  <slot>initdecom_stateChange()</slot>
+  <slot>initopti_stateChange()</slot>
+  <slot>lmopti_stateChange()</slot>
+  <slot>on_valueChange()</slot>
+  <slot>on_sliderChange()</slot>
+  <slot>sgFilter_Clicked()</slot>
+  <slot>outputptbutton_Clicked()</slot>
+  <slot>outputwavebutton_Clicked()</slot>
+ </slots>
+</ui>

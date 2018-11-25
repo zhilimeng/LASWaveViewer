@@ -1,0 +1,3 @@
+add_subdirectory(liblas)
+add_subdirectory(waveviewer)
+add_subdirectory(samples)

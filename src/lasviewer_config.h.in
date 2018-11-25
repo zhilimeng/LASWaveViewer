@@ -1,0 +1,4 @@
+// the configured options and settings
+
+
+#cmakedefine _USE_MATH_DEFINES
